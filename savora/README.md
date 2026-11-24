@@ -51,7 +51,8 @@ Copy `.env.example` to `.env.local` once a Supabase project exists. Never commit
 ## Project structure
 
 ```
-public/brand/          Logo badge (cropped from the supplied logo, not redrawn), favicon
+public/brand/          Original logo, favicon
+src/assets/            Logo badge (cropped from the supplied logo, not redrawn)
 src/styles/tokens.css  Design tokens: colour, type, spacing
 src/styles/global.css  Components and layout
 src/data/sample.js     Labelled sample/setup data (future seed source only)

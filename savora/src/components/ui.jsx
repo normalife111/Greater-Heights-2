@@ -1,9 +1,10 @@
 import Icon from './Icon';
+import logoBadge from '../assets/savora-logo-badge.png';
 
 export function Logo({ size = 64 }) {
   return (
     <img
-      src="/brand/savora-logo-badge.png"
+      src={logoBadge}
       width={size}
       height={size}
       alt="SAVORA Afro-Continental Bistro"
