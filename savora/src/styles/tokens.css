@@ -1,0 +1,54 @@
+/*
+ * SAVORA design tokens.
+ * Extracted from the supplied references: golden-yellow badge on near-black,
+ * warm amber light, white serif headlines with gold emphasis, pill buttons.
+ */
+:root {
+  /* Colour */
+  --gold: #f5b400;
+  --gold-hover: #ffc629;
+  --gold-muted: #8a6a16;
+  --ink: #17120b;          /* near-black: page ground */
+  --espresso: #241a10;     /* raised surfaces */
+  --charcoal: #2e2419;     /* borders and wells on dark */
+  --brown: #5a3d22;
+  --cream: #f7f0e3;
+  --white: #ffffff;
+  --text: #f7f0e3;
+  --text-muted: rgba(247, 240, 227, 0.68);
+  --text-faint: rgba(247, 240, 227, 0.45);
+  --line: rgba(245, 180, 0, 0.18);
+  --line-soft: rgba(247, 240, 227, 0.1);
+  --danger: #ff8a6b;
+  --success: #8fd17a;
+
+  /* Type */
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fs-xs: 0.78rem;
+  --fs-sm: 0.9rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.15rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: clamp(1.9rem, 3.6vw, 2.6rem);
+  --fs-3xl: clamp(2.4rem, 5vw, 3.6rem);
+  --fs-hero: clamp(2.9rem, 7vw, 5.6rem);
+
+  /* Space & shape */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  --space-section: clamp(4rem, 9vw, 7.5rem);
+  --radius-sm: 10px;
+  --radius: 18px;
+  --radius-pill: 999px;
+  --max: 1200px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --header-h: 84px;
+
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
