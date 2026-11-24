@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Life — Restaurant & Bar</title>
+  <meta name="description" content="The Life is a neighbourhood restaurant serving seasonal plates, wood-fired dishes and good wine. Book a table tonight.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav" id="top">
+    <a class="brand" href="#top" aria-label="The Life home">
+      <span class="brand-mark">the</span><span class="brand-word">Life</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+    <nav id="nav-links" class="nav-links">
+      <a href="#story">Our Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#experience">Experience</a>
+      <a href="#visit">Visit</a>
+      <a href="#reserve" class="btn btn-small">Book a Table</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Restaurant · Bar · Est. 2026</p>
+        <h1>Eat well.<br><em>Live well.</em></h1>
+        <p class="lede">Seasonal plates, wood-fired flavours and a glass of something good — served at a long table where everyone's welcome. This is <strong>The Life</strong>.</p>
+        <div class="hero-actions">
+          <a href="#reserve" class="btn">Reserve a Table</a>
+          <a href="#menu" class="btn btn-ghost">See the Menu</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="plate">
+          <div class="plate-rim"></div>
+          <div class="plate-food"></div>
+          <div class="garnish g1"></div>
+          <div class="garnish g2"></div>
+          <div class="garnish g3"></div>
+        </div>
+        <div class="stamp">
+          <svg viewBox="0 0 200 200">
+            <defs><path id="circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+            <text><textPath href="#circle">GOOD FOOD · GOOD PEOPLE · GOOD LIFE · </textPath></text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Wood-fired</span><span>✦</span><span>Seasonal</span><span>✦</span><span>Local farms</span><span>✦</span><span>Natural wine</span><span>✦</span><span>Sunday brunch</span><span>✦</span>
+        <span>Wood-fired</span><span>✦</span><span>Seasonal</span><span>✦</span><span>Local farms</span><span>✦</span><span>Natural wine</span><span>✦</span><span>Sunday brunch</span><span>✦</span>
+      </div>
+    </div>
+
+    <!-- STORY -->
+    <section class="story section" id="story">
+      <div class="story-grid">
+        <div>
+          <p class="eyebrow">Our Story</p>
+          <h2>A table for the good&nbsp;life.</h2>
+        </div>
+        <div class="story-copy">
+          <p>The Life started with a simple idea: the best moments happen around food. A long dinner with friends. A quiet glass after work. A birthday that turns into a celebration nobody wants to end.</p>
+          <p>Our kitchen cooks with what's in season, sourced from farms close to home, and finished over an open flame. Our menu changes with the weather, but the welcome never does.</p>
+          <div class="stats">
+            <div><span class="stat-num">40+</span><span class="stat-label">Local suppliers</span></div>
+            <div><span class="stat-num">6</span><span class="stat-label">Menus a year</span></div>
+            <div><span class="stat-num">1</span><span class="stat-label">Wood-fired oven</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu section" id="menu">
+      <div class="section-head">
+        <p class="eyebrow">The Menu</p>
+        <h2>Made today, for tonight.</h2>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Menu categories">
+        <button role="tab" aria-selected="true" aria-controls="tab-starters" id="t-starters">Starters</button>
+        <button role="tab" aria-selected="false" aria-controls="tab-mains" id="t-mains">Mains</button>
+        <button role="tab" aria-selected="false" aria-controls="tab-desserts" id="t-desserts">Desserts</button>
+        <button role="tab" aria-selected="false" aria-controls="tab-drinks" id="t-drinks">Drinks</button>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="tab-starters" aria-labelledby="t-starters">
+        <ul class="dishes">
+          <li><div class="dish-top"><h3>Charred Flatbread</h3><span class="dots"></span><span class="price">$9</span></div><p>Whipped feta, hot honey, za'atar, olive oil</p></li>
+          <li><div class="dish-top"><h3>Burrata & Peaches</h3><span class="dots"></span><span class="price">$15</span></div><p>Grilled stone fruit, basil, toasted pistachio</p></li>
+          <li><div class="dish-top"><h3>Crispy Calamari</h3><span class="dots"></span><span class="price">$14</span></div><p>Lemon aioli, pickled chilli, fresh herbs</p></li>
+          <li><div class="dish-top"><h3>Garden Soup</h3><span class="dots"></span><span class="price">$11</span></div><p>Roasted tomato, smoked paprika, sourdough croutons <span class="tag">V</span></p></li>
+          <li><div class="dish-top"><h3>Beef Tartare</h3><span class="dots"></span><span class="price">$17</span></div><p>Cured yolk, capers, shallot, potato crisps</p></li>
+          <li><div class="dish-top"><h3>Suya Wings</h3><span class="dots"></span><span class="price">$13</span></div><p>Spiced peanut rub, grilled onion, cooling yoghurt</p></li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="tab-mains" aria-labelledby="t-mains" hidden>
+        <ul class="dishes">
+          <li><div class="dish-top"><h3>Wood-Fired Ribeye</h3><span class="dots"></span><span class="price">$38</span></div><p>12oz, chimichurri, beef-fat potatoes</p></li>
+          <li><div class="dish-top"><h3>Whole Grilled Sea Bream</h3><span class="dots"></span><span class="price">$32</span></div><p>Charred lemon, salsa verde, fennel salad</p></li>
+          <li><div class="dish-top"><h3>Jollof Risotto</h3><span class="dots"></span><span class="price">$24</span></div><p>Smoky tomato rice, roasted plantain, crispy shallots <span class="tag">V</span></p></li>
+          <li><div class="dish-top"><h3>Half Roast Chicken</h3><span class="dots"></span><span class="price">$27</span></div><p>Brined overnight, garlic jus, greens</p></li>
+          <li><div class="dish-top"><h3>Hand-Rolled Pappardelle</h3><span class="dots"></span><span class="price">$23</span></div><p>Slow-braised lamb ragù, pecorino, mint</p></li>
+          <li><div class="dish-top"><h3>Ember Cauliflower</h3><span class="dots"></span><span class="price">$21</span></div><p>Tahini, pomegranate, dukkah, herbs <span class="tag">VG</span></p></li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="tab-desserts" aria-labelledby="t-desserts" hidden>
+        <ul class="dishes">
+          <li><div class="dish-top"><h3>Burnt Basque Cheesecake</h3><span class="dots"></span><span class="price">$11</span></div><p>Seasonal fruit compote</p></li>
+          <li><div class="dish-top"><h3>Dark Chocolate Pot</h3><span class="dots"></span><span class="price">$10</span></div><p>Sea salt, olive oil, toasted brioche</p></li>
+          <li><div class="dish-top"><h3>Puff-Puff & Caramel</h3><span class="dots"></span><span class="price">$9</span></div><p>Warm dough bites, salted caramel, vanilla cream</p></li>
+          <li><div class="dish-top"><h3>Affogato</h3><span class="dots"></span><span class="price">$8</span></div><p>Vanilla gelato, espresso, amaretti</p></li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="tab-drinks" aria-labelledby="t-drinks" hidden>
+        <ul class="dishes">
+          <li><div class="dish-top"><h3>The Life Spritz</h3><span class="dots"></span><span class="price">$13</span></div><p>Aperitivo, hibiscus, prosecco, orange</p></li>
+          <li><div class="dish-top"><h3>Smoked Old Fashioned</h3><span class="dots"></span><span class="price">$15</span></div><p>Bourbon, demerara, bitters, oak smoke</p></li>
+          <li><div class="dish-top"><h3>Chapman Fizz</h3><span class="dots"></span><span class="price">$9</span></div><p>Our alcohol-free take — citrus, bitters, cucumber</p></li>
+          <li><div class="dish-top"><h3>House Wine</h3><span class="dots"></span><span class="price">$10 / $38</span></div><p>Rotating red, white & orange — glass / bottle</p></li>
+          <li><div class="dish-top"><h3>Local Craft Beer</h3><span class="dots"></span><span class="price">$8</span></div><p>Ask your server what's pouring</p></li>
+          <li><div class="dish-top"><h3>Fresh Juices</h3><span class="dots"></span><span class="price">$6</span></div><p>Zobo, ginger-pineapple, or seasonal</p></li>
+        </ul>
+      </div>
+      <p class="menu-note">V vegetarian · VG vegan · Please let us know about any allergies.</p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience section" id="experience">
+      <div class="section-head">
+        <p class="eyebrow">The Experience</p>
+        <h2>More than a meal.</h2>
+      </div>
+      <div class="cards">
+        <article class="card c1">
+          <span class="card-num">01</span>
+          <h3>Dinner</h3>
+          <p>Our full seasonal menu, from shared plates to the wood-fired grill. Tuesday to Sunday.</p>
+        </article>
+        <article class="card c2">
+          <span class="card-num">02</span>
+          <h3>Sunday Brunch</h3>
+          <p>Bottomless coffee, slow mornings, and a live acoustic set from 11am.</p>
+        </article>
+        <article class="card c3">
+          <span class="card-num">03</span>
+          <h3>Private Events</h3>
+          <p>Birthdays, rehearsal dinners and celebrations for up to 60 guests in our back room.</p>
+        </article>
+      </div>
+
+      <blockquote class="quote">
+        <p>“The kind of place you go once and immediately start planning your next visit.”</p>
+        <cite>— A very happy regular</cite>
+      </blockquote>
+    </section>
+
+    <!-- VISIT -->
+    <section class="visit section" id="visit">
+      <div class="visit-grid">
+        <div>
+          <p class="eyebrow">Visit Us</p>
+          <h2>Come as you are.</h2>
+          <address>
+            123 Main Street<br>
+            Your City, ST 00000
+          </address>
+          <p class="contact">
+            <a href="tel:+10000000000">(000) 000-0000</a><br>
+            <a href="mailto:hello@thelife.example">hello@thelife.example</a>
+          </p>
+        </div>
+        <div class="hours">
+          <h3>Hours</h3>
+          <dl>
+            <div><dt>Monday</dt><dd>Closed</dd></div>
+            <div><dt>Tue – Thu</dt><dd>5pm – 10pm</dd></div>
+            <div><dt>Fri – Sat</dt><dd>5pm – 12am</dd></div>
+            <div><dt>Sunday</dt><dd>11am – 9pm</dd></div>
+          </dl>
+          <p class="open-status" id="open-status"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVE -->
+    <section class="reserve section" id="reserve">
+      <div class="reserve-inner">
+        <div class="section-head">
+          <p class="eyebrow">Reservations</p>
+          <h2>Save your seat.</h2>
+          <p class="sub">Walk-ins always welcome. For parties over 8, give us a call.</p>
+        </div>
+        <form class="reserve-form" id="reserve-form" novalidate>
+          <label>Name<input type="text" name="name" required autocomplete="name" placeholder="Your name"></label>
+          <label>Phone<input type="tel" name="phone" required autocomplete="tel" placeholder="Phone number"></label>
+          <label>Date<input type="date" name="date" required></label>
+          <label>Time
+            <select name="time" required>
+              <option value="">Select a time</option>
+              <option>5:00 pm</option><option>5:30 pm</option><option>6:00 pm</option>
+              <option>6:30 pm</option><option>7:00 pm</option><option>7:30 pm</option>
+              <option>8:00 pm</option><option>8:30 pm</option><option>9:00 pm</option>
+            </select>
+          </label>
+          <label>Guests
+            <select name="guests" required>
+              <option>1</option><option selected>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8</option>
+            </select>
+          </label>
+          <label class="full">Notes<textarea name="notes" rows="3" placeholder="Allergies, celebrations, seating preferences…"></textarea></label>
+          <button type="submit" class="btn full">Request Reservation</button>
+          <p class="form-msg full" id="form-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="#top"><span class="brand-mark">the</span><span class="brand-word">Life</span></a>
+    <p>Eat well. Live well.</p>
+    <div class="social">
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="Facebook">Facebook</a>
+      <a href="#" aria-label="TikTok">TikTok</a>
+    </div>
+    <p class="copy">© <span id="year">2026</span> The Life Restaurant. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
