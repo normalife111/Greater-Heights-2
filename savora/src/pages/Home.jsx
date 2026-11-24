@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import heroImage from '../assets/hero-savora.jpg';
 import { Link } from 'react-router-dom';
 import ContactLines from '../components/ContactLines';
 import { DishCard, DishDialog } from '../components/Dish';
@@ -20,22 +21,19 @@ export default function Home() {
     <>
       {/* HERO — follows Reference B: dark, warm amber light, serif headline with gold accent */}
       <section className="hero" aria-labelledby="hero-title">
-        <div className="container hero__grid">
-          <div>
-            <h1 id="hero-title">
-              {c ? <>{c.heroTitleLead} <span className="gold">{c.heroTitleAccent}</span><br />{c.heroTitleTail}</> : 'SAVORA'}
-            </h1>
-            <p className="hero__lede">{c?.heroLede}</p>
-            <div className="hero__actions">
-              <Link to="/reservations" className="btn"><Icon name="calendar" /> Book Your Table <Icon name="arrow" /></Link>
-              <Link to="/menu" className="btn btn--outline"><Icon name="utensils" /> Explore Our Menu</Link>
-            </div>
-            <a href="#story" className="scroll-cue"><span className="scroll-cue__mouse" aria-hidden="true" /> Scroll to explore</a>
+        <img className="hero__bg" src={heroImage} alt="Smoky jollof rice with grilled chicken and plantain in the SAVORA dining room" fetchpriority="high" />
+        <div className="hero__shade" aria-hidden="true" />
+        <div className="container hero__content">
+          <h1 id="hero-title">
+            {c ? <>{c.heroTitleLead} <em className="gold">{c.heroTitleAccent}</em> {c.heroTitleTail}</> : 'SAVORA'}
+          </h1>
+          <span className="hero__swash" aria-hidden="true" />
+          <p className="hero__lede">{c?.heroLede}</p>
+          <div className="hero__actions">
+            <Link to="/reservations" className="btn"><Icon name="calendar" /> Book Your Table <Icon name="arrow" /></Link>
+            <Link to="/menu" className="btn btn--outline"><Icon name="utensils" /> Explore Our Menu</Link>
           </div>
-          <div className="hero__visual">
-            <div className="hero__glow" aria-hidden="true" />
-            <Photo alt="Signature dish on a dark table in warm light" label="Hero dish shot, warm amber lighting" />
-          </div>
+          <a href="#story" className="scroll-cue"><span className="scroll-cue__mouse" aria-hidden="true" /> Scroll to explore</a>
         </div>
       </section>
 
