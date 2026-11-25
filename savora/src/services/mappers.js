@@ -54,7 +54,7 @@ export function mapSeating(areas) {
 export function mapMenu(categoryRows, itemRows, imageUrl) {
   const slugById = Object.fromEntries(categoryRows.map((c) => [c.id, c.slug]));
   return {
-    categories: categoryRows.map((c) => ({ id: c.slug, name: c.name })),
+    categories: categoryRows.map((c) => ({ id: c.slug, name: c.name, group: c.menu_group })),
     items: itemRows
       .filter((i) => slugById[i.category_id])
       .map((i) => ({

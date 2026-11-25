@@ -57,7 +57,7 @@ export default function Home() {
           {featured.isSample && <SampleBanner>These dishes and prices are examples. The real menu is managed by the restaurant.</SampleBanner>}
           <LoadState loading={featured.loading} error={featured.error}>
             <div className="dish-grid">
-              {featured.data?.map((d) => <DishCard key={d.id} item={d} onOpen={setOpenDish} />)}
+              {featured.data?.map((d) => <DishCard key={d.id} item={d} onOpen={setOpenDish} showPhoto />)}
             </div>
           </LoadState>
           <p style={{ marginTop: 'var(--space-4)' }}><Link to="/menu" className="link-arrow">See the full menu <Icon name="arrow" width="18" /></Link></p>

@@ -12,6 +12,7 @@
  */
 import { isBackendConfigured, supabase } from '../lib/supabase';
 import * as sample from '../data/sample';
+import * as menu from '../data/menu';
 import {
   mapBookingPolicy, mapGallery, mapHomeContent, mapMenu, mapOpeningHours, mapRestaurant, mapSeating,
 } from './mappers';
@@ -69,10 +70,10 @@ export async function getHomeContent() {
 
 export async function getMenu() {
   if (!isBackendConfigured) {
-    return { data: { categories: sample.menuCategories, items: sample.menuItems }, isSample: true };
+    return { data: { categories: menu.menuCategories, items: menu.menuItems }, isSample: false };
   }
   const [categories, items] = await Promise.all([
-    rows(supabase.from('menu_categories').select('id, slug, name, is_sample').order('sort_order')),
+    rows(supabase.from('menu_categories').select('id, slug, name, menu_group, is_sample').order('sort_order')),
     rows(supabase.from('menu_items')
       .select('id, category_id, name, description, price_kobo, image_path, available, featured, tags, allergens, is_sample')
       .is('archived_at', null)

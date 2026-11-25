@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react';
 import { formatPrice } from '../lib/format';
 import { Photo } from './ui';
 
-export function DishCard({ item, onOpen }) {
+/** `showPhoto` keeps the 'photo needed' frame for items without an image (used for the home page highlights). */
+export function DishCard({ item, onOpen, showPhoto = false }) {
   return (
     <button
       type="button"
@@ -10,13 +11,13 @@ export function DishCard({ item, onOpen }) {
       onClick={() => onOpen?.(item)}
       aria-label={`${item.name}, ${formatPrice(item.price)}${item.available ? '' : ', currently unavailable'}. View details`}
     >
-      <Photo src={item.image} alt={item.name} label={item.name} />
+      {(item.image || showPhoto) && <Photo src={item.image} alt={item.name} label={item.name} />}
       <div className="dish__body">
         <div className="dish__top">
           <span className="dish__name">{item.name}</span>
           <span className="dish__price">{formatPrice(item.price)}</span>
         </div>
-        <p className="dish__desc">{item.description}</p>
+        {item.description && <p className="dish__desc">{item.description}</p>}
         <div className="dish__tags">
           {!item.available && <span className="unavailable-pill">Unavailable today</span>}
           {item.tags.map((t) => <span className="tag" key={t}>{t}</span>)}
@@ -45,15 +46,15 @@ export function DishDialog({ item, onClose }) {
       aria-labelledby="dish-dialog-title"
     >
       {item && (
-        <div className="dialog__panel" style={{ position: 'relative' }}>
+        <div className="dialog__panel" style={{ position: 'relative', paddingTop: item.image ? 0 : 'var(--space-4)' }}>
           <button className="dialog__close" onClick={() => ref.current.close()} aria-label="Close">×</button>
-          <Photo src={item.image} alt={item.name} label={`${item.name}, large`} />
+          {item.image && <Photo src={item.image} alt={item.name} label={`${item.name}, large`} />}
           <div className="dialog__body">
             <div className="dish__top">
               <h2 id="dish-dialog-title" style={{ fontSize: 'var(--fs-2xl)' }}>{item.name}</h2>
               <span className="dish__price" style={{ fontSize: 'var(--fs-xl)' }}>{formatPrice(item.price)}</span>
             </div>
-            <p style={{ color: 'var(--text-muted)' }}>{item.description}</p>
+            {item.description && <p style={{ color: 'var(--text-muted)' }}>{item.description}</p>}
             {item.allergens && <p style={{ fontSize: 'var(--fs-sm)' }}><strong>Allergens:</strong> {item.allergens}</p>}
             <div className="dish__tags">
               {!item.available && <span className="unavailable-pill">Unavailable today</span>}
@@ -64,5 +65,25 @@ export function DishDialog({ item, onClose }) {
         </div>
       )}
     </dialog>
+  );
+}
+
+/** Menu-board row for items without a photo: name, dotted leader, price. */
+export function MenuRow({ item }) {
+  return (
+    <li className={`menu-row${item.available ? '' : ' menu-row--unavailable'}`}>
+      <div className="menu-row__top">
+        <span className="menu-row__name">{item.name}</span>
+        <span className="menu-row__dots" aria-hidden="true" />
+        <span className="menu-row__price">{formatPrice(item.price)}</span>
+      </div>
+      {(item.description || item.tags.length > 0 || !item.available) && (
+        <p className="menu-row__meta">
+          {item.description}
+          {item.tags.map((t) => <span className="tag" key={t}>{t}</span>)}
+          {!item.available && <span className="unavailable-pill">Unavailable today</span>}
+        </p>
+      )}
+    </li>
   );
 }

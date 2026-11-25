@@ -28,42 +28,6 @@ insert into public.opening_hours (day_of_week, opens_at, closes_at) values
   (6, '11:00', '23:30'),
   (7, '11:00', '21:00');
 
--- Menu
-insert into public.menu_categories (slug, name, sort_order, is_sample) values
-  ('starters', 'Starters', 1, true),
-  ('african-classics', 'African Classics', 2, true),
-  ('continental', 'Continental Favourites', 3, true),
-  ('mains', 'Main Courses', 4, true),
-  ('seafood', 'Seafood', 5, true),
-  ('sides', 'Sides', 6, true),
-  ('desserts', 'Desserts', 7, true),
-  ('drinks', 'Drinks', 8, true);
-
-insert into public.menu_items (category_id, name, description, price_kobo, available, featured, tags, allergens, sort_order, is_sample)
-select c.id, v.name, v.description, v.price_kobo, v.available, v.featured, v.tags, v.allergens, v.sort_order, true
-from (values
-  ('starters', 'Peppered Gizzard Skewers', 'Grilled gizzard, sweet peppers, scotch bonnet glaze.', 650000, true, true, array['Spicy']::text[], null, 1),
-  ('starters', 'Plantain & Avocado Bruschetta', 'Toasted sourdough, ripe plantain, avocado, lime.', 550000, true, false, array['Vegetarian']::text[], 'Gluten', 2),
-  ('starters', 'Pepper Soup Shots', 'Light, aromatic broth with uziza and scent leaf.', 450000, false, false, array['Spicy']::text[], null, 3),
-  ('african-classics', 'Smoky Party Jollof', 'Firewood-style jollof rice, grilled chicken, fried plantain, salad.', 1450000, true, true, array['Signature']::text[], null, 4),
-  ('african-classics', 'Egusi & Pounded Yam', 'Melon seed soup with assorted meats and leafy greens.', 1550000, true, false, array[]::text[], null, 5),
-  ('african-classics', 'Suya-Spiced Beef Platter', 'Thin-sliced beef, yaji spice, onions, tomato, cabbage.', 1300000, true, true, array['Spicy', 'Signature']::text[], 'Peanut', 6),
-  ('continental', 'Creamy Tuscan Chicken Pasta', 'Penne, sun-dried tomato cream, spinach, parmesan.', 1250000, true, false, array[]::text[], 'Gluten, Dairy', 7),
-  ('continental', 'Classic Caesar Salad', 'Cos lettuce, croutons, parmesan, house dressing.', 900000, true, false, array[]::text[], 'Gluten, Dairy, Egg, Fish', 8),
-  ('mains', 'Grilled Ribeye', 'Chargrilled steak, pepper sauce, hand-cut chips.', 2800000, true, true, array['Signature']::text[], 'Dairy', 9),
-  ('mains', 'Ofada Rice & Ayamase', 'Local ofada rice with green pepper stew and boiled egg.', 1350000, true, false, array['Spicy']::text[], 'Egg', 10),
-  ('seafood', 'Whole Grilled Croaker', 'Spiced whole fish, peppered sauce, roasted potatoes.', 2200000, true, true, array[]::text[], 'Fish', 11),
-  ('seafood', 'Garlic Butter Prawns', 'King prawns, garlic butter, chilli, herbs.', 1950000, true, false, array[]::text[], 'Shellfish, Dairy', 12),
-  ('sides', 'Fried Plantain (Dodo)', 'Sweet ripe plantain, fried golden.', 300000, true, false, array['Vegan']::text[], null, 13),
-  ('sides', 'Moi Moi', 'Steamed bean pudding.', 350000, true, false, array['Vegetarian']::text[], 'Egg', 14),
-  ('desserts', 'Puff-Puff with Salted Caramel', 'Warm dough bites, caramel, vanilla cream.', 500000, true, false, array['Vegetarian']::text[], 'Gluten, Dairy', 15),
-  ('desserts', 'Chocolate Fondant', 'Molten centre, vanilla ice cream.', 650000, true, false, array['Vegetarian']::text[], 'Gluten, Dairy, Egg', 16),
-  ('drinks', 'Chapman', 'Classic Nigerian fruit punch with cucumber and citrus.', 400000, true, false, array['Non-alcoholic']::text[], null, 17),
-  ('drinks', 'Zobo Spritz', 'Hibiscus, ginger, sparkling water.', 350000, true, false, array['Non-alcoholic']::text[], null, 18),
-  ('drinks', 'Fresh Pineapple-Ginger Juice', 'Pressed to order.', 350000, true, false, array['Non-alcoholic']::text[], null, 19)
-) as v(category, name, description, price_kobo, available, featured, tags, allergens, sort_order)
-join public.menu_categories c on c.slug = v.category;
-
 -- Website copy
 insert into public.content_sections (page, section, title, body, is_sample) values
   ('home', 'hero', null, '{"titleLead":"Where Every","titleAccent":"Flavour","titleTail":"Tells a Story.","lede":"Experience the rich taste of African and continental cuisine in a warm, stylish and welcoming atmosphere."}'::jsonb, true),

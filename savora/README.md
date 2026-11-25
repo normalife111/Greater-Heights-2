@@ -65,8 +65,9 @@ table/row, which columns changed and when. Values are not copied, so no personal
    supabase db push            # applies every migration in order
    ```
    Or paste each migration file into the SQL editor, in filename order.
-3. Development/staging only: run `supabase/seed/demo.sql` to load the labelled sample data.
-   Never load it into production.
+3. Run `supabase/seed/menu.sql` to load the real menu (any environment, once).
+   Development/staging only: also run `supabase/seed/demo.sql` for the labelled sample hours,
+   tables and copy. Never load the demo seed into production.
 4. Set Authentication → URL configuration to the site URL, and enable email confirmations.
 5. Sign up on the site with the owner's email, then run `supabase/seed/make_super_admin.sql`
    (with the email filled in) to make that account Super Admin.
@@ -100,9 +101,10 @@ mappers against real rows.
 
 - **No form saves anything yet.** Without a backend, every form says clearly that nothing was
   saved and asks the guest to call or email. No fake confirmations.
-- **All content is sample or placeholder.** Address, phone, email, hours, social links, menu
-  items, prices, chef profiles, testimonials and history are labelled on the page as
-  placeholders. With Supabase connected they come from the database; Phase 5 makes them
+- **Menu is real; the rest is still placeholder.** The 86 menu items and prices come from the
+  owner's food and drinks boards (`src/data/menu.js`, seeded by `supabase/seed/menu.sql`).
+  Address, phone, email, hours, social links, chef profiles, testimonials and history are still
+  labelled on the page as placeholders. With Supabase connected they come from the database; Phase 5 makes them
   editable in the admin.
 - **Photography.** The home hero uses the SAVORA image supplied by the owner (cropped to remove
   its baked-in text). Every other frame says which shot is needed. Reference B from the brief was
@@ -134,7 +136,8 @@ src/pages/             One file per route
 ## What the owner needs to supply
 
 1. Verified address, phone, email, opening hours, social links.
-2. Real menu: categories, dishes, descriptions, prices (NGN), allergens.
+2. Menu: ✅ names and prices received. Still needed: short descriptions, allergens, dish photos,
+   the chef's selection, and the "Wines & More" list if there is one.
 3. Approved photography (hero dish, dining room, dishes, team portraits).
 4. Story, chef names and bios, testimonials (with consent).
 5. Booking policies: max party size, notice, cancellation, deposits.

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { DishCard, DishDialog } from '../components/Dish';
+import { DishCard, DishDialog, MenuRow } from '../components/Dish';
 import Icon from '../components/Icon';
 import { LoadState, SampleBanner } from '../components/ui';
 import { useAsync } from '../lib/useAsync';
@@ -11,11 +11,13 @@ export default function Menu() {
   const [query, setQuery] = useState('');
   const [openDish, setOpenDish] = useState(null);
 
+  const groups = useMemo(() => [...new Set((data?.categories ?? []).map((c) => c.group || 'Food'))], [data]);
+
   const grouped = useMemo(() => {
     if (!data) return [];
     const q = query.trim().toLowerCase();
     return data.categories
-      .filter((c) => category === 'all' || c.id === category)
+      .filter((c) => category === 'all' || c.id === category || category === `group:${c.group || 'Food'}`)
       .map((c) => ({
         ...c,
         items: data.items.filter(
@@ -30,8 +32,8 @@ export default function Menu() {
       <section className="page-hero pattern">
         <div className="container">
           <span className="eyebrow">The Menu</span>
-          <h1>Bold flavours, both sides of the pass.</h1>
-          <p>All prices in Naira. Tell your server about any allergies before ordering.</p>
+          <h1>Our Menu</h1>
+          <p>African classics, continental favourites and drinks. Prices in Naira. Please tell your server about any allergies before ordering.</p>
         </div>
       </section>
 
@@ -42,8 +44,13 @@ export default function Menu() {
           <div className="menu-controls">
             <div className="chips" role="group" aria-label="Filter by category">
               <button className="chip" aria-pressed={category === 'all'} onClick={() => setCategory('all')}>All</button>
-              {data?.categories.map((c) => (
-                <button key={c.id} className="chip" aria-pressed={category === c.id} onClick={() => setCategory(c.id)}>{c.name}</button>
+              {groups.map((g) => (
+                <span key={g} className="chip-group">
+                  <button className="chip chip--group" aria-pressed={category === `group:${g}`} onClick={() => setCategory(`group:${g}`)}>All {g}</button>
+                  {data.categories.filter((c) => (c.group || 'Food') === g).map((c) => (
+                    <button key={c.id} className="chip" aria-pressed={category === c.id} onClick={() => setCategory(c.id)}>{c.name}</button>
+                  ))}
+                </span>
               ))}
             </div>
             <div className="search">
@@ -60,12 +67,21 @@ export default function Menu() {
                 <button className="btn btn--outline btn--sm" style={{ marginTop: '1rem' }} onClick={() => { setQuery(''); setCategory('all'); }}>Clear filters</button>
               </div>
             ) : (
-              grouped.map((c) => (
+              grouped.map((c, i) => (
                 <section className="menu-category" key={c.id} aria-labelledby={`cat-${c.id}`}>
+                  {(i === 0 || (c.group || 'Food') !== (grouped[i - 1].group || 'Food')) && (
+                    <p className="menu-group-label">{c.group || 'Food'}</p>
+                  )}
                   <h2 id={`cat-${c.id}`}>{c.name}</h2>
-                  <div className="dish-grid">
-                    {c.items.map((i) => <DishCard key={i.id} item={i} onOpen={setOpenDish} />)}
-                  </div>
+                  {c.items.some((i) => i.image) ? (
+                    <div className="dish-grid">
+                      {c.items.map((i) => <DishCard key={i.id} item={i} onOpen={setOpenDish} />)}
+                    </div>
+                  ) : (
+                    <ul className="menu-list">
+                      {c.items.map((i) => <MenuRow key={i.id} item={i} />)}
+                    </ul>
+                  )}
                 </section>
               ))
             )}

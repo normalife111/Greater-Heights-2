@@ -49,7 +49,7 @@ set local role anon;
 do $$
 declare n int;
 begin
-  assert (select count(*) from public.menu_items) = 19, 'anon sees the 19 current sample dishes only';
+  assert (select count(*) from public.menu_items) = 86, 'anon sees the 86 current menu items only';
   assert not exists (select 1 from public.menu_items where name in ('Archived dish', 'Draft-category dish')), 'anon cannot see archived/draft dishes';
   assert not exists (select 1 from public.menu_categories where slug = 'hidden'), 'anon cannot see unpublished categories';
   assert (select count(*) from public.restaurant_settings) = 1, 'anon reads public profile';
@@ -142,10 +142,10 @@ set local request.jwt.claim.sub = '00000000-0000-0000-0000-0000000000a4';
 do $$
 declare n int;
 begin
-  update public.menu_items set price_kobo = 1500000 where name = 'Smoky Party Jollof';
+  update public.menu_items set price_kobo = 1500000 where name = 'Jollof Rice & Chicken';
   get diagnostics n = row_count;
   assert n = 1, 'content manager can change a price';
-  assert (select count(*) from public.menu_items) = 21, 'content manager sees drafts and archived dishes';
+  assert (select count(*) from public.menu_items) = 88, 'content manager also sees draft and archived dishes';
   assert (select count(*) from public.reservations) = 0, 'content manager sees no reservations';
   assert (select count(*) from public.profiles) = 1, 'content manager sees no customer data';
 end $$;

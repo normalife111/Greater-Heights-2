@@ -6,10 +6,9 @@
  * ("[To be supplied]") or demo content flagged `sample: true`, and is shown
  * on the site with a visible "Sample" label.
  *
- * In Phase 2 this file is replaced as the data source by Supabase tables
- * (restaurant_settings, opening_hours, menu_categories, menu_items,
- * content_sections, testimonials, gallery_images, chef_profiles).
- * It stays only as the seed source for `supabase/seed/demo.sql`.
+ * With Supabase connected, the site reads these from the database instead
+ * (restaurant_settings, opening_hours, content_sections, testimonials, ...).
+ * This file is also the source for `supabase/seed/demo.sql`.
  */
 
 export const PLACEHOLDER = '[To be supplied by owner]';
@@ -59,39 +58,7 @@ export const homeContent = {
   ],
 };
 
-export const menuCategories = [
-  { id: 'starters', name: 'Starters' },
-  { id: 'african-classics', name: 'African Classics' },
-  { id: 'continental', name: 'Continental Favourites' },
-  { id: 'mains', name: 'Main Courses' },
-  { id: 'seafood', name: 'Seafood' },
-  { id: 'sides', name: 'Sides' },
-  { id: 'desserts', name: 'Desserts' },
-  { id: 'drinks', name: 'Drinks' },
-];
-
-/** Demo dishes only. Names are generic examples; prices are illustrative. */
-export const menuItems = [
-  { id: 's1', category: 'starters', name: 'Peppered Gizzard Skewers', description: 'Grilled gizzard, sweet peppers, scotch bonnet glaze.', price: 6500, featured: true, available: true, tags: ['Spicy'], allergens: '' },
-  { id: 's2', category: 'starters', name: 'Plantain & Avocado Bruschetta', description: 'Toasted sourdough, ripe plantain, avocado, lime.', price: 5500, featured: false, available: true, tags: ['Vegetarian'], allergens: 'Gluten' },
-  { id: 's3', category: 'starters', name: 'Pepper Soup Shots', description: 'Light, aromatic broth with uziza and scent leaf.', price: 4500, featured: false, available: false, tags: ['Spicy'], allergens: '' },
-  { id: 'a1', category: 'african-classics', name: 'Smoky Party Jollof', description: 'Firewood-style jollof rice, grilled chicken, fried plantain, salad.', price: 14500, featured: true, available: true, tags: ['Signature'], allergens: '' },
-  { id: 'a2', category: 'african-classics', name: 'Egusi & Pounded Yam', description: 'Melon seed soup with assorted meats and leafy greens.', price: 15500, featured: false, available: true, tags: [], allergens: '' },
-  { id: 'a3', category: 'african-classics', name: 'Suya-Spiced Beef Platter', description: 'Thin-sliced beef, yaji spice, onions, tomato, cabbage.', price: 13000, featured: true, available: true, tags: ['Spicy', 'Signature'], allergens: 'Peanut' },
-  { id: 'c1', category: 'continental', name: 'Creamy Tuscan Chicken Pasta', description: 'Penne, sun-dried tomato cream, spinach, parmesan.', price: 12500, featured: false, available: true, tags: [], allergens: 'Gluten, Dairy' },
-  { id: 'c2', category: 'continental', name: 'Classic Caesar Salad', description: 'Cos lettuce, croutons, parmesan, house dressing.', price: 9000, featured: false, available: true, tags: [], allergens: 'Gluten, Dairy, Egg, Fish' },
-  { id: 'm1', category: 'mains', name: 'Grilled Ribeye', description: 'Chargrilled steak, pepper sauce, hand-cut chips.', price: 28000, featured: true, available: true, tags: ['Signature'], allergens: 'Dairy' },
-  { id: 'm2', category: 'mains', name: 'Ofada Rice & Ayamase', description: 'Local ofada rice with green pepper stew and boiled egg.', price: 13500, featured: false, available: true, tags: ['Spicy'], allergens: 'Egg' },
-  { id: 'f1', category: 'seafood', name: 'Whole Grilled Croaker', description: 'Spiced whole fish, peppered sauce, roasted potatoes.', price: 22000, featured: true, available: true, tags: [], allergens: 'Fish' },
-  { id: 'f2', category: 'seafood', name: 'Garlic Butter Prawns', description: 'King prawns, garlic butter, chilli, herbs.', price: 19500, featured: false, available: true, tags: [], allergens: 'Shellfish, Dairy' },
-  { id: 'd1', category: 'sides', name: 'Fried Plantain (Dodo)', description: 'Sweet ripe plantain, fried golden.', price: 3000, featured: false, available: true, tags: ['Vegan'], allergens: '' },
-  { id: 'd2', category: 'sides', name: 'Moi Moi', description: 'Steamed bean pudding.', price: 3500, featured: false, available: true, tags: ['Vegetarian'], allergens: 'Egg' },
-  { id: 'e1', category: 'desserts', name: 'Puff-Puff with Salted Caramel', description: 'Warm dough bites, caramel, vanilla cream.', price: 5000, featured: false, available: true, tags: ['Vegetarian'], allergens: 'Gluten, Dairy' },
-  { id: 'e2', category: 'desserts', name: 'Chocolate Fondant', description: 'Molten centre, vanilla ice cream.', price: 6500, featured: false, available: true, tags: ['Vegetarian'], allergens: 'Gluten, Dairy, Egg' },
-  { id: 'k1', category: 'drinks', name: 'Chapman', description: 'Classic Nigerian fruit punch with cucumber and citrus.', price: 4000, featured: false, available: true, tags: ['Non-alcoholic'], allergens: '' },
-  { id: 'k2', category: 'drinks', name: 'Zobo Spritz', description: 'Hibiscus, ginger, sparkling water.', price: 3500, featured: false, available: true, tags: ['Non-alcoholic'], allergens: '' },
-  { id: 'k3', category: 'drinks', name: 'Fresh Pineapple-Ginger Juice', description: 'Pressed to order.', price: 3500, featured: false, available: true, tags: ['Non-alcoholic'], allergens: '' },
-].map((item) => ({ ...item, sample: true }));
+// The menu is real owner-supplied data and lives in ./menu.js.
 
 export const testimonials = [
   { id: 't1', quote: 'Guest reviews will appear here once the restaurant approves them.', author: 'Sample testimonial', sample: true },

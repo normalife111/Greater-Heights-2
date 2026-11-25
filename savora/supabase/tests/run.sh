@@ -8,7 +8,7 @@ PGOPTIONS="-c client_min_messages=warning" psql -U postgres -q -c "drop database
 run() { psql -U postgres -d $DB -q -v ON_ERROR_STOP=1 -f "$1" >/dev/null && echo "ok  $1"; }
 run tests/supabase_stubs.sql
 for f in migrations/*.sql; do run "$f"; done
-[ -f seed/demo.sql ] && run seed/demo.sql
+for f in seed/menu.sql seed/demo.sql; do run "$f"; done
 for f in tests/test_*.sql; do
   psql -U postgres -d $DB -q -v ON_ERROR_STOP=1 -f "$f" && echo "PASS $f"
 done
